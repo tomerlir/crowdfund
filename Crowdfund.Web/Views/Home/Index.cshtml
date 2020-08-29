@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ProjectViewModel>
+<!--- Start Landing Page Section -->
+<div class="jumbotron" style="padding: 13rem 2rem">
+    <div class="container vertical-center d-flex justify-content-center align-items-start" id="hero">
+        <h1 class="display-4 w-50 text-right">You Dream</h1>
+        <h1 class="display-4 w-50 text-right">We Fund</h1>
+        <p class="lead w-50 text-right mt-5">
+            <a asp-controller="Dashboard" asp-action="CreateProject"  class="btn btn-warning btn-lg" role="button">Create Project</a>
+        </p>
+    </div>
+</div>
+
+<!-- Start Featured Projects -->
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <h2 class="text-muted text-center my-5">Trending Projects</h2>
+        <div class="row">
+            @foreach (var pr in Model)
+            {
+                <div class="col-md-6 col-lg-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" src="@pr.MainImageUrl" alt="Card image cap">
+                        <div class="card-body">
+                            <h3 class="text-center">@pr.Title</h3>
+                            <div class="text-center mb-2">
+                                <small class="text-muted">@pr.Category</small>
+                            </div>
+                            <div class="text-center mb-4">
+                                <small class="text-muted">@pr.DaysToGo days to go</small>
+                            </div>
+                            <div class="text-center mb-4">
+                                <small class="text-muted">Created by: @pr.UserName</small>
+                            </div>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-success " role="progressbar" aria-valuenow="@pr.Progress" aria-valuemin="0" aria-valuemax="100" style="width:@pr.Progress%">@pr.Progress%</div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <span class="badge badge-pill badge-warning mb-2" style="font-size: .9rem">@pr.BackingsAmount / @pr.Goal$</span>
+                                    <small class="badge badge-pill badge-warning" style="font-size: .9rem">@pr.Backings backings</small>
+                                </div>
+                                <a asp-controller="Project" asp-action="Details" asp-route-id="@pr.ProjectId" type="button" class="btn btn-md w-50 btn-success">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <section class="cta__1 mt-5">
+        <div class="cta__center">
+            <h1 class="display-2 mb-2 text-light">We Bring</h1>
+            <h1 class="display-2 mb-2 text-light">Projects</h1>
+            <h1 class="display-2 mb-2 text-light">To Life</h1>
+            <br>
+            <a asp-controller="Dashboard" asp-action="CreateProject" class="btn btn-success btn-lg text-nowrap text-uppercase text-dark" style="background-color: #ffc107; border:none">Start your journey now</a>
+
+        </div>
+    </section>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#loginModal').modal('show');
+    });
+</script>

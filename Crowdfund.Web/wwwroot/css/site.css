@@ -1,0 +1,108 @@
+﻿*:focus,
+*:active {
+    outline: transparent !important;
+}
+
+body {
+    padding-top: 85px;
+}
+
+.active {
+    background-color: #fff !important;
+}
+
+.scroll {
+    max-height: 90vh;
+    overflow-y: scroll;
+}
+
+.navbar {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: .1rem;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+}
+
+.card-text {
+    text-align: justify;
+}
+
+.show {
+    text-align: center;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+    padding-top: 0.8rem;
+}
+
+.navbar-form {
+    -webkit-flex-basis: 100%;
+    -moz-flex-basis: 100%;
+    -ms-flex-basis: 100%;
+    -o-flex-basis: 100%;
+    flex-basis: -moz-available;
+    flex-basis: 100%;
+    justify-content: space-around;
+}
+
+.input-group-search {
+    width: 80% !important;
+}
+
+.card {
+    max-width: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+}
+
+.card-header {
+    text-align: center;
+    font-weight: 700;
+    background-color: #ffc107;
+}
+
+.jumbotron {
+    background: url('../img/Bulb.png') no-repeat center;
+    background-size: cover;
+    margin-bottom: 0;
+}
+
+.vertical-center {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.cta__1 {
+    display: flex;
+    height: 50vw;
+    background-image: url("../img/hands.jpg");
+    background-size: cover;
+    background-position: top;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cta__center {
+    width: 60%;
+    line-height: 1;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.input-validation-error {
+    border-color: red;
+}
+

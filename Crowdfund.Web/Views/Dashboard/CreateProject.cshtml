@@ -1,0 +1,75 @@
+﻿@model Crowdfund.Core.Models.Project
+
+
+<div class="container" style="margin-top: 90px;">
+
+    <!-- Project Title & Foto-->
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-3">
+            <div class="card w-100 h-100">
+                <div class="card-body">
+                    <a asp-action="Index" asp-route-id="@Globals.UserId" class="btn btn-lg btn-warning mb-4 w-100">
+                        Back
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-9">
+            <div class="card w-100 h-100">
+                <div class="card-body">
+                    <form method="post" class="js-create-project-form js-form-validations">
+                        <div class="form-group">
+                            <label for="title">Project Title</label>
+                            <input type="text" name="@Html.NameFor(nm=>nm.Title)"
+                                   data-val="true" data-val-required="Field required" class="form-control js-create-project-title">
+                            @Html.ValidationMessageFor(nm => nm.Title)
+                        </div>
+                        <div class="form-group">
+                            <label for="categoryId">Category</label>
+                            <select class="form-control js-create-project-category" name="categoryId" id="categoryId">
+                                @foreach (var category in Globals.Categories)
+                                {
+                                    <option value='@((int) category)'>@category</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mainImageUrl">Image Url</label>
+                            <input type="text" name="@Html.NameFor(nm=>nm.MainImageUrl)"
+                                   data-val="true" data-val-required="Field required" class="form-control js-create-project-image">
+                            @Html.ValidationMessageFor(nm => nm.MainImageUrl)
+                        </div>
+                        <div class="form-group">
+                            <label for="dueTo">Due To</label>
+                            <input type="date" name="@Html.NameFor(nm=>nm.DueTo)"
+                                   data-val="true" data-val-required="Field required" class="form-control js-create-project-dueto">
+                            @Html.ValidationMessageFor(nm => nm.DueTo)
+                        </div>
+                        <div class="form-group">
+                            <label for="goal">Goal</label>
+                            <input type="number" min="1" step="1" name="@Html.NameFor(nm=>nm.Goal)"
+                                   data-val="true" data-val-required="Field required" class="form-control js-create-project-goal">
+                            @Html.ValidationMessageFor(nm => nm.Goal)
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea name="@Html.NameFor(nm=>nm.Description)"
+                                      data-val="true" data-val-required="Field required" class="form-control js-create-project-description" id="description" rows="8"></textarea>
+                            @Html.ValidationMessageFor(nm => nm.Description)
+                        </div>
+                        <button type="button" class="btn btn-lg btn-warning js-create-project-button">Create</button>
+
+                        <div class="alert alert-success mt-3 js-create-project-success-alert" role="alert" style="text-align:center">
+                            Project created successfully
+                        </div>
+
+                        <div class="alert alert-danger mt-3 js-create-project-fail-alert" role="alert" style="text-align:center">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

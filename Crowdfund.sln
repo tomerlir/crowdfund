@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crowdfund.Core", "Crowdfund.Core\Crowdfund.Core.csproj", "{1F19E3E6-E272-4390-907C-A1C2347FAA79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crowdfund.Web", "Crowdfund.Web\Crowdfund.Web.csproj", "{4181F716-B543-4101-80AD-6830A15A3963}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F19E3E6-E272-4390-907C-A1C2347FAA79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F19E3E6-E272-4390-907C-A1C2347FAA79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F19E3E6-E272-4390-907C-A1C2347FAA79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F19E3E6-E272-4390-907C-A1C2347FAA79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4181F716-B543-4101-80AD-6830A15A3963}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4181F716-B543-4101-80AD-6830A15A3963}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4181F716-B543-4101-80AD-6830A15A3963}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4181F716-B543-4101-80AD-6830A15A3963}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {51BFDE36-5DC7-42B9-9AD5-D9CE85232EC7}
+	EndGlobalSection
+EndGlobal

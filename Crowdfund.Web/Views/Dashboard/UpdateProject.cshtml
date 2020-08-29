@@ -1,0 +1,76 @@
+﻿@model Crowdfund.Core.Models.Project
+
+
+<div class="container updateproject-container" style="margin-top:90px">
+
+    <!-- Project Title & Foto-->
+    <div class="row">
+        <div class="col col-md-3">
+            <div class="card w-100 h-100">
+                <div class="card-body">
+                    <a asp-controller="Dashboard" asp-action="Index" asp-route-id="@Globals.UserId" class="btn btn-lg btn-warning mb-4 w-100">
+                        Back
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col col-md-9">
+            <div class="card w-100 h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Edit your Project: @Model.Title</h5>
+                    <form method="post" class="js-form-validations">
+                        <div class="form-group">
+                            <input type="hidden" class="form-control js-project-id" value="@Model.ProjectId">
+                            <label for="title">Title</label>
+                            <input type="text" name="@Html.NameFor(nm=>nm.Title)"
+                                   data-val="true" data-val-required="Field required" class="form-control js-title" value="@Model.Title">
+                            @Html.ValidationMessageFor(nm => nm.Title)
+                        </div>
+                        <div class="form-group">
+                            <label for="categoryId">Category</label>
+                            <select class="form-control js-project-update-category">
+                                @foreach (var category in Globals.Categories)
+                                {
+                                    <option selected="@((int)category == (int)Model.Category)" value='@((int)category)'>@category</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mainImageUrl">Main Image URL</label>
+                            <input type="text" class="form-control js-mainImageUrl" name="@Html.NameFor(nm=>nm.MainImageUrl)"
+                                   data-val="true" data-val-required="Field required" value="@Model.MainImageUrl">
+                            @Html.ValidationMessageFor(nm => nm.MainImageUrl)
+                        </div>
+                        <div class="form-group">
+                            <label for="dueTo">Due To</label>
+                            <input type="date" class="form-control js-dueTo" name="@Html.NameFor(nm=>nm.DueTo)"
+                                   data-val="true" data-val-required="Field required" value="@Model.DueTo.ToString("yyyy-MM-dd")">
+                            @Html.ValidationMessageFor(nm => nm.DueTo)
+                        </div>
+                        <div class="form-group">
+                            <label for="goal">Goal</label>
+                            <input type="number" min="1" step="1" class="form-control js-goal" name="@Html.NameFor(nm=>nm.Goal)"
+                                   data-val="true" data-val-required="Field required" value="@Model.Goal">
+                            @Html.ValidationMessageFor(nm => nm.Goal)
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control js-description" rows="8" name="@Html.NameFor(nm=>nm.Description)"
+                                      data-val="true" data-val-required="Field required" id="description">@Model.Description</textarea>
+                            @Html.ValidationMessageFor(nm => nm.Description)
+                        </div>
+                        <button type="button" class="btn btn-lg btn-warning js-project-update-save">Save</button>
+                        <div class="alert alert-success js-project-update-success-alert mt-2" role="alert" style="text-align:center">
+                            Project's information updated successfully
+                        </div>
+                        <div class="alert alert-danger js-project-update-fail-alert mt-2" role="alert" style="text-align:center">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

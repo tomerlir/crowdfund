@@ -1,0 +1,60 @@
+@model Crowdfund.Web.Models.Dashboard.ProjectInfoViewModel
+
+<div class="container" style="margin-top: 90px;">
+
+
+    <!-- Project Title & Foto-->
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-3">
+            <div class="card w-100 h-100">
+                <div class="card-body">
+                    <a asp-action="Index" asp-route-id="@Globals.UserId" class="btn btn-lg btn-warning mb-4 w-100">
+                        Back
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-9">
+            <div class="card w-100 h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Add Images For: @Model.ProjectTitle</h5>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="d-flex justify-content-end mb-3">
+                                <button id="addMedia" type="button" class="btn btn-warning">Add Image</button>
+                            </div>
+                            <form method="post">
+                                <div id="inputFormRow">
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="url[]" class="form-control m-input" placeholder="Enter URL">
+                                        <div class="input-group-append">
+                                            <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="newRow"></div>
+                                <input type="hidden" name="projectId" value="@Model.ProjectId"/>
+                                <button type="submit" class="btn btn-lg btn-warning">Save Images</button>
+                            </form>
+                            @if (Globals.HasError != null && !Globals.HasError.Value)
+                            {
+                                <div class="alert alert-success mt-3" role="alert" style="text-align:center">
+                                    Images added successfully
+                                </div>
+                            }
+
+                            @if (Globals.HasError != null && Globals.HasError.Value)
+                            {
+                                <div class="alert alert-danger mt-3" role="alert" style="text-align:center">
+                                    @Globals.Error
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
